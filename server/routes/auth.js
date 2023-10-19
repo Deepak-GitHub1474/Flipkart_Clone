@@ -7,6 +7,12 @@ const authenticateUser = require("../utils/authentication");
 
 const secretKey = "your-secret-key";
 
+// Landing
+
+router.get("/landing", (req, res) => {
+  res.json({ message: "Welcome, This is landing page." });
+});
+
 // Sign Up
 router.post("/signup", async (req, res) => {
   try {
