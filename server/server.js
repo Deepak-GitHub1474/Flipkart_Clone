@@ -21,8 +21,8 @@ const authRoutes = require("./routes/auth");
 app.use("/", authRoutes);
 
 // Listening Server and DB Connection
-
-app.listen(process.env.PORT, () => {
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
     connectDB();
     console.log("Server is Running on PORT", process.env.PORT);
 });
