@@ -15,7 +15,7 @@ loginBtn.addEventListener("click", async (event) => {
 
 const loginUser = async (payload) => {
   try {
-    const resp = await fetch("http://127.0.0.1:8000/login", {
+    const resp = await fetch("https://flipkart-5cw9.onrender.com/login", {
       method: "POST",
       credentials: 'include',
       redirect: 'follow',

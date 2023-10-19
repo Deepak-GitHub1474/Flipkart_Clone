@@ -2,7 +2,7 @@
 
 const userData = async () => {
     try {
-        const resp = await fetch("http://127.0.0.1:8000", {
+        const resp = await fetch("https://flipkart-5cw9.onrender.com", {
             method: "GET",
             credentials: "include"
         })

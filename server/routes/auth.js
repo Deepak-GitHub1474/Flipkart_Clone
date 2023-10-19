@@ -62,15 +62,15 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// Protected Route - Example
-router.get("/", authenticateUser, (req, res) => {
-  res.json({ message: "Authenticated User", user: req.userData });
-});
-
 // User Logout
 router.get("/logout", (req, res) => {
   res.clearCookie("token");
   return res.json({ message: "Success" }); // Return a JSON response
+});
+
+// Protected Route - Example
+router.get("/", authenticateUser, (req, res) => {
+  res.json({ message: "Authenticated User", user: req.userData });
 });
 
 module.exports = router;

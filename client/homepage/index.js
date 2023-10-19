@@ -183,7 +183,7 @@ searchBox.addEventListener("input", () => {
 // Routing to login page
 const userData = async () => {
     try {
-        const resp = await fetch("http://127.0.0.1:8000", {
+        const resp = await fetch("https://flipkart-5cw9.onrender.com", {
             method: "GET",
             credentials: "include"
         })
@@ -205,7 +205,7 @@ const logout = document.getElementById("logout");
 
 logout.addEventListener("click", async () => {
     try {
-        const response = await fetch("http://127.0.0.1:8000/logout", {
+        const response = await fetch("https://flipkart-5cw9.onrender.com/logout", {
             method: "GET",
             credentials: "include",
         });

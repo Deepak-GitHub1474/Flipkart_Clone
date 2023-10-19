@@ -22,7 +22,7 @@ formSubmit.addEventListener("click", (event) => {
 const registerUser = async (payload) => {
 
     try {
-        const resp = await fetch("http://127.0.0.1:8000/signup", {
+        const resp = await fetch("https://flipkart-5cw9.onrender.com/signup", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(payload)
