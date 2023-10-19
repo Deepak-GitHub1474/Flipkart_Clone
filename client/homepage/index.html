@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping Site</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../images/flipkart-logo-fav-icon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="master-container">
+        <div class="header-section">
+            <div class="navbar">
+                <div class="nav-title-search-container">
+                    <div class="nav-title-container">
+                        <li class="flipkart-title">Flipkart</li>
+                        <p class="explore">Explore <span>Plus</span><img src="../images/nav-plus.png" alt="plus-img"></p>
+                    </div>
+                    <div class="typing-container">
+                        <input type="text" id="search-box" placeholder="Search for products, brand and more">
+                        <div class="search-icon-container">
+                            <i class="fa-solid fa-magnifying-glass fa-l" id="search-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-profile-container">
+                    <div class="user-name">
+                        <li>Deepak <span><i class="fa-solid fa-angle-down"></i></span></li>
+                        <i class="fa-solid fa-play dropdown-icon1"></i>
+                        <div id="profile-section-elements">
+                            <div class="profile-elements">
+                                <i class="fa-solid fa-user fa-2xs"></i>
+                                <span>My Profile</span>
+                            </div>
+                            <div class="profile-elements">
+                                <i class="fa-solid fa-bolt fa-2xs"></i>
+                                <span>SuperCoin Zone</span>
+                            </div>
+                            <div class="profile-elements">
+                                <i class="fa-solid fa-plus fa-2xs"></i>
+                                <span>Flipkart Plus Zone</span>
+                            </div>
+                            <div class="profile-elements">
+                                <i class="fa-solid fa-file-medical fa-2xs"></i>
+                                <span>Orders</span>
+                            </div>
+                            <div class="profile-elements">
+                                <i class="fa-solid fa-heart fa-2xs"></i>
+                                <span>Wishlist</span>
+                            </div>
+                            <div class="profile-elements">
+                                <i class="fa-solid fa-bars-progress fa-2xs"></i>
+                                <span>Coupons</span>
+                            </div>
+                            <div class="profile-elements">
+                                <i class="fa-solid fa-gift fa-2xs"></i>
+                                <span>Gift Cards</span>
+                            </div>
+                            <div class="profile-elements">
+                                <i class="fa-solid fa-bell fa-2xs"></i>
+                                <span>Notifications</span>
+                            </div>
+                            <div class="profile-elements">
+                                <i class="fa-solid fa-power-off fa-2xs"></i>
+                                <span id="logout">Logout</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#">Become a Seller</a>
+                    <div class="more-container">
+                        <li>More <span><i class="fa-solid fa-angle-down"></i></span></li>
+                        <i class="fa-solid fa-play dropdown-icon2"></i>
+                        <div id="more-section-element">
+                            <div class="more-elements">
+                                <i class="fa-solid fa-bell fa-2xs"></i>
+                                <span>Notification Preference</span>
+                            </div>
+                            <div class="more-elements">
+                                <i class="fa-solid fa-clipboard-question fa-2xs"></i>
+                                <span>24x7 Customer Care</span>
+                            </div>
+                            <div class="more-elements">
+                                <i class="fa-solid fa-arrow-trend-up fa-2xs"></i>
+                                <span>Adverties</span>
+                            </div>
+                            <div class="more-elements">
+                                <i class="fa-solid fa-download fa-2xs"></i>
+                                <span>Download</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="../cartpage/cart.html" id="cart">
+                        <i class="fa-solid fa-cart-shopping"></i><span>Cart</span>
+                    </a>
+                    <!-- cart Count -->
+                    <div  id="cart-count"></div>
+                </div>
+            </div>
+            <div class="navbar-submenu-container"></div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="item-collection-container">
+            <div class="item-collection-div">
+                <img src="../images/1.webp" class="item-collection-img">
+                <p>TOP Offers</p>
+            </div>
+            <div class="item-collection-div">
+                <img src="../images/2.webp" class="item-collection-img">
+                <p>Mobile & Tablets</p>
+            </div>
+            <div class="item-collection-div">
+                <img src="../images/3.webp" class="item-collection-img">
+                <p>Electronics</p>
+            </div>
+            <div class="item-collection-div">
+                <img src="../images/4.webp" class="item-collection-img">
+                <p>TVs & Appliance</p>
+            </div>
+            <div class="item-collection-div">
+                <img src="../images/5.webp" class="item-collection-img">
+                <p>Fashion</p>
+            </div>
+            <div class="item-collection-div">
+                <img src="../images/6.webp" class="item-collection-img">
+                <p>Beauty</p>
+            </div>
+            <div class="item-collection-div">
+                <img src="../images/7.webp" class="item-collection-img">
+                <p>Home & Kitchen</p>
+            </div>
+            <div class="item-collection-div">
+                <img src="../images/8.webp" class="item-collection-img">
+                <p>Furniture</p>
+            </div>
+            <div class="item-collection-div">
+                <img src="../images/9.webp" class="item-collection-img">
+                <p>Flights</p>
+            </div>
+            <div class="item-collection-div">
+                <img src="../images/10.webp" class="item-collection-img">
+                <p>Grocery</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="offer-section">
+            <img src="../images/1.png" class="offer-img img-1">
+            <img src="../images/2.png" class="offer-img img-2">
+            <img src="../images/3.png" class="offer-img img-3">
+            <img src="../images/4.png" class="offer-img img-4">
+        </div>
+
+        <div class="prev-next-btn-container">
+            <button id="prev-btn">&lt;</button>
+            <button id="next-btn">&gt;</button>
+        </div>
+
+        <div class="bank-offers-container">
+            <div class="bank-offers">
+                <img src="../images/5.png" alt="hdfc-logo-img">
+                <img src="../images/6.png" alt="kotak-logo-img">
+                <div class="discunt">
+                    <span class="span1">10% Instant <br>Discount* <span class="span2">*T&C Apply</span></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Product Container -->
+    <div class="product-container">
+        <!-- <div class="product-container-collection product-collection">
+            <h2>Top Offers</h2>
+            <div class="view-more-items">
+                <a href="#" class="view-all-items">VIEW ALL</a>
+                <img src="../images/bgi.webp" class="bgi">
+            </div>
+        </div> -->
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-top-section">
+            <div class="footer-container1">
+                <div>ABOUT</div>
+                <p>Contact Us</p>
+                <p>About Us</p>
+                <p>Careers</p>
+                <p>Flipkart Stories</p>
+                <p>Press</p>
+                <p>Flipkart Wholesale</p>
+                <p>Corporate Information</p>
+            </div>
+            <div class="footer-container1">
+                <div>Help</div>
+                <p>Payments</p>
+                <p>Shipping</p>
+                <p>Cancellation & Retuens</p>
+                <p>FAQ</p>
+                <p>Report Infringement</p>
+            </div>
+            <div class="footer-container1">
+                <div>CONSUMER POLICY</div>
+                <p>Return Policy</p>
+                <p>Terms Of Use</p>
+                <p>Security</p>
+                <p>Privacy</p>
+                <p>Sitemap</p>
+                <p>Grievance Redressal</p>
+                <p>EPR Compliance</p>
+            </div>
+            <div class="footer-container1 footer-social-media-container">
+                <div>SOCIAL</div>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">YouTube</a>
+            </div>
+            <div class="footer-seperator1"></div>
+            <div class="footer-container2">
+                <div>Mail Us:</div>
+                <p>Flipkart Internet Private Limited,</p>
+                <p>Buildings Alyssa, Begonia &</p>
+                <p>Clove Embassy Tech Village,</p>
+                <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+                <p>Bengaluru, 560103,</p>
+                <p>Karnataka, India</p>
+            </div>
+            <div class="footer-container2">
+                <div>Registered Office Address:</div>
+                <p>Flipkart Internet Private Limited,</p>
+                <p>Buildings Alyssa, Begonia &</p>
+                <p>Clove Embassy Tech Village,</p>
+                <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+                <p>Bengaluru, 560103,</p>
+                <p>Karnataka, India</p>
+                <p>Telephone: 044-45614700</p>
+            </div>
+        </div>
+        <div class="footer-seperator2"></div>
+        <div class="footer-bottom-section">
+            <div>
+                <img src="../images/23.svg" alt="">
+                <span>Become a Seller</span>
+            </div>
+            <div>
+                <img src="../images/24.svg" alt="">
+                <span>Advertise</span>
+            </div>
+            <div>
+                <img src="../images/25.svg" alt="">
+                <span>Gift Cards</span>
+            </div>
+            <div>
+                <img src="../images/26.svg" alt="">
+                <span>Help Center</span>
+            </div>
+            <div>
+                <span>© 2007-2023 Flipkart.com</span>
+            </div>
+            <div>
+                <img src="../images/27.svg" alt="">
+            </div>
+        </div>
+    </footer>
+
+    <!-- External JS File -->
+    <script src="index.js"></script>
+
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/5ad84bde35.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

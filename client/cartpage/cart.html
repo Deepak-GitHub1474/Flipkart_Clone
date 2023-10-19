@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | Flipkart.com</title>
+    <link rel="stylesheet" href="cart.css">
+    <link rel="shortcut icon" href="../images/flipkart-logo-fav-icon.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <!-- Header Section -->
+        <div class="header-section">
+            <div class="navbar">
+                <div class="nav-title-search-container">
+                    <div class="nav-title-container">
+                        <a href="../homepage/index.html">
+                            <li class="flipkart-title">Flipkart</li>
+                        </a>
+                        <p class="explore">Explore <span>Plus</span><img src="../images/nav-plus.png" alt="plus-img">
+                        </p>
+                    </div>
+                    <div class="typing-container">
+                        <input type="text" id="typing-input" placeholder="Search for products, brand and more">
+                        <div class="search-icon-container"><i class="fa-solid fa-magnifying-glass fa-l"
+                                id="search-icon"></i></div>
+                    </div>
+                </div>
+                <div class="cart-profile-container">
+                    <div class="user-name">
+                        <li>Deepak <span><i class="fa-solid fa-angle-down"></i></span></li>
+                        <i class="fa-solid fa-play dropdown-icon1"></i>
+                        <div id="profile-section-elements">
+                            <div class="profile-elements">
+                                <i class="fa-solid fa-user fa-2xs"></i>
+                                <span>My Profile</span>
+                            </div>
+                            <div class="profile-elements">
+                                <i class="fa-solid fa-bolt fa-2xs"></i>
+                                <span>SuperCoin Zone</span>
+                            </div>
+                            <div class="profile-elements">
+                                <i class="fa-solid fa-plus fa-2xs"></i>
+                                <span>Flipkart Plus Zone</span>
+                            </div>
+                            <div class="profile-elements">
+                                <i class="fa-solid fa-file-medical fa-2xs"></i>
+                                <span>Orders</span>
+                            </div>
+                            <div class="profile-elements">
+                                <i class="fa-solid fa-heart fa-2xs"></i>
+                                <span>Wishlist</span>
+                            </div>
+                            <div class="profile-elements">
+                                <i class="fa-solid fa-bars-progress fa-2xs"></i>
+                                <span>Coupons</span>
+                            </div>
+                            <div class="profile-elements">
+                                <i class="fa-solid fa-gift fa-2xs"></i>
+                                <span>Gift Cards</span>
+                            </div>
+                            <div class="profile-elements">
+                                <i class="fa-solid fa-bell fa-2xs"></i>
+                                <span>Notifications</span>
+                            </div>
+                            <div class="profile-elements">
+                                <i class="fa-solid fa-power-off fa-2xs"></i>
+                                <span>Logout</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Container Section -->
+
+        <main class="main-section">
+            <div class="box-container-1">
+                <div class="cart-container-1 cart-containers">
+                    <p class="flipkart">Flipkart</p>
+                    <p class="grocery">Grocery</p>
+                </div>
+                <div class="pincode-container">
+                    <div class="cart-containers pincode">
+                        <p>From Saved Address</p>
+                        <button id="delivery-pincode-btn">Enter Delivery Pincode</button>
+                    </div>
+                </div>
+
+                <!-- Rendering element by using JS -->
+                <div class="cart-containers product-list-container">
+                    <div id="cart-items-container">
+                        <!-- Custom elements for empty cart -->
+                        <div id="empty-cart-elements-container">
+                            <div id="empty-cart-elements">
+                                <img src="https://rukminim2.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90"
+                                    alt="" class="empty-cart-img">
+                                <p>Your cart is empty!</p>
+                                <span>Explore our wide selection and find something you like</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="place-order-container">
+                        <button id="place-order-btn">PLACE ORDER</button>
+                    </div>
+                </div>
+
+                <div class="box4">
+                    <h3 class="saved">Saved For Later (1)</h3>
+                    <hr>
+                    <div class="stock-out-container">
+                        <div class="cart-qunatity">
+                            <div>
+                                <img src="https://rukminim2.flixcart.com/image/224/224/k4d27ww0/jacket/w/u/5/xxl-shkt-isgr-next-solid-styles-original-imafh9ksyvrgy3bz.jpeg?q=90"
+                                    class="item-img" alt="">
+                            </div>
+                            <div class="add-quantity">
+                                <div class="minus">-</div>
+                                <h4 class="quantity">1</h4>
+                                <div class="plus">+</div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="product-title">Solid styles Full Sleeve Washed Men Denim Jacket</h3>
+                            <h4 class="size">Size: M</h4>
+                            <h4 id="stock">Out Of Stock</h4>
+                            <h4 id="stock-out-item-remove">REMOVE</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-container-2">
+                <div class="box5">
+                    <h3>PRICE DETAILS</h3>
+                    <hr>
+                    <div class="box5-divs">
+                        <h4>Price (<span id="cart-count-placeholder">0</span>) item</h4>
+                        <h4 id="cart-total-price-placeholder">₹0</h4>
+                    </div>
+                    <div class="box5-divs">
+                        <h4>Discount</h4>
+                        <h4 id="total-discount">-</h4>
+                    </div>
+                    <div class="box5-divs">
+                        <h4>Delivery Charges</h4>
+                        <h4>₹40</h4>
+                    </div>
+                    <hr>
+                    <div class="box5-divs">
+                        <h2>Total Amount</h2>
+                        <h2 id="total-amount-placeholder">₹0</h2>
+                    </div>
+                </div>
+
+                <div class="box6">
+                    Safe and Secure Payments.Easy retun 100% Authenticating Project
+                </div>
+            </div>
+            <!-- Order placed -->
+            <div class="confetti-container">
+                <img src="https://rukminim2.flixcart.com/lockin/32/32/images/super_coin_icon_22X22.png?q=90" alt="" id="coin">
+                <div id="close-confetti-container">X</div>
+                <span>Order Placed 🎁</span>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer-section">
+            <div class="footer-div1">
+
+                <ul class="footer-list">
+                    <p>Policies:</p>
+                    <li><a href="#">Returns Policy |</a></li>
+                    <li><a href="#">Terms of use |</a></li>
+                    <li><a href="#">Returns Security |</a></li>
+                    <li><a href="#">Privacy |</a></li>
+                    <li><a href="#">Infringement |</a></li>
+                </ul>
+                <p>&copy; 2007-2023 Flipkart.com</p>
+            </div>
+            <div class="footer-div2">
+                <span>Need help? Visit the <a href="#" id="help-center">Help Center</a> or <a href="#"
+                        id="contact-us">Contact Us</a></span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- External JS File -->
+    <script src="cart.js"></script>
+
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/5ad84bde35.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
