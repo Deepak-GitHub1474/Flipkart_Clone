@@ -1,6 +1,45 @@
+const searchBox = document.getElementById("search-box");
+const searchIcon = document.querySelector(".search-icon-container");
+const flipkartTitleContainer = document.querySelector(".nav-title-container");
+const cartProfileContainer = document.querySelector(".cart-profile-container");
+
 const minus = document.querySelector(".minus");
 const plus = document.querySelector(".plus");
 const placeOrderButton = document.getElementById("place-order-btn");
+
+// Header Search box controll
+searchIcon.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevent the click event from propagating to the body
+    if (window.innerWidth < 768) {
+        searchBox.style.width = "80vw";
+        flipkartTitleContainer.style.display = "none";
+        cartProfileContainer.style.display = "none";
+    }
+});
+
+// Add a click event listener to the body or another container
+document.body.addEventListener("click", () => {
+    if (window.innerWidth < 768) {
+        searchBox.style.width = "0";
+        flipkartTitleContainer.style.display = "block";
+        cartProfileContainer.style.display = "flex";
+    }
+});
+
+// Prevent clicks inside the search box from closing it
+searchBox.addEventListener("click", (e) => {
+    e.stopPropagation();
+});
+
+window.addEventListener("resize", () => {
+    flipkartTitleContainer.style.display = "block";
+    cartProfileContainer.style.display = "flex";
+    if (window.innerWidth > 768) {
+        searchBox.style.width = "30vw";
+    } else {
+        searchBox.style.width = "0";
+    }
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     displayCart();
@@ -21,7 +60,7 @@ function displayCart() {
     });
 
     // Hide "PLACE ORDER" button and box-container-2 if cart is empty
-    const boxContainer2 = document.querySelector(".box-container-2");
+    const boxContainer2 = document.querySelector(".cost-container-wrapper");
 
     if (cartItems.length === 0) {
         placeOrderButton.style.display = "none";
@@ -36,7 +75,7 @@ function displayCart() {
     }
 }
 
-// 
+// Creating Crat Elements Dynamically
 function createCartItemElement(product) {
     const cartItem = document.createElement("div");
     cartItem.classList.add("cart-items");
@@ -132,27 +171,18 @@ function createCartItemElement(product) {
     price.classList.add("price");
 
     const offerApplied = document.createElement("span");
-    offerApplied.textContent = "2 offers applied";
+    offerApplied.textContent = "2 offers";
     priceContainer.appendChild(offerApplied);
     offerApplied.classList.add("offer-applied");
 
-    const offerInfo = document.createElement("div");
+    const offerInfo = document.createElement("span");
     priceContainer.appendChild(offerInfo);
     offerInfo.textContent = "!";
     offerInfo.classList.add("offer-info");
 
-    const saveRemoveItemContainer = document.createElement("div");
-    itemInfo.appendChild(saveRemoveItemContainer);
-    saveRemoveItemContainer.classList.add("save-remove-item-container");
-
-    const saveItem = document.createElement("h3");
-    saveItem.textContent = "SAVE FOR LATER";
-    saveRemoveItemContainer.appendChild(saveItem);
-    saveItem.classList.add("save-item");
-
     const removeItem = document.createElement("h3");
     removeItem.textContent = "REMOVE";
-    saveRemoveItemContainer.appendChild(removeItem);
+    itemInfo.appendChild(removeItem);
     removeItem.classList.add("remove-item");
     // Attaching event listener to the "REMOVE" tag to remove the product from cart
     removeItem.addEventListener("click", () => removeItemFromCart(product));
@@ -164,21 +194,6 @@ function createCartItemElement(product) {
     const deliveryInfo = document.createElement("div");
     deliveryContainer.appendChild(deliveryInfo);
     deliveryInfo.classList.add("deliver-info");
-
-    const deliveryDate = document.createElement("span");
-    deliveryDate.textContent = "Delivery by Fri Aug |";
-    deliveryInfo.appendChild(deliveryDate);
-    deliveryDate.classList.add("delivery-date");
-
-    const shipment = document.createElement("span");
-    shipment.textContent = "Free";
-    deliveryInfo.appendChild(shipment);
-    shipment.classList.add("shipment");
-
-    const shipmentCharge = document.createElement("span");
-    shipmentCharge.textContent = "₹40";
-    deliveryInfo.appendChild(shipmentCharge);
-    shipmentCharge.classList.add("shipment-changes");
 
     return cartItem;
 }
@@ -266,23 +281,3 @@ closeConfettiContainer.addEventListener("click", () => {
     confettiContainer.style.display = "none"
     location.reload();
 })
-
-// Routing to login page
-const userData = async () => {
-    try {
-        const resp = await fetch("https://flipkart-5cw9.onrender.com", {
-            method: "GET",
-            credentials: "include"
-        })
-        if (resp.status !== 200) {
-            window.location.href = "http://127.0.0.1:5500/client/login/login.html"
-        }
-        const data = await resp.json()
-        console.log(data)
-
-    } catch (error) {
-        window.location.href = "http://127.0.0.1:5500/client/login/login.html"
-    }
-}
-
-userData()

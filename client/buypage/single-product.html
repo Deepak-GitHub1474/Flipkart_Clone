@@ -4,16 +4,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single Product Page</title>
+    <link rel="shortcut icon" href="../assets/flipkart-logo-fav-icon.png" type="image/x-icon">
+    <title>Product Details</title>
     <link rel="stylesheet" href="single-product.css">
     <link rel="shortcut icon" href="favIcon.png" type="image/x-icon">
 </head>
 
 <body>
-    <div class="container">
-        <div class="product" id="product-img-container"></div>
-        <div id="product-tittle-price-btn-container"></div>
+    <!-- Header Section -->
+    <header class="header-section">
+        <div class="navbar">
+            <div class="nav-title-search-container">
+                <div class="nav-title-container">
+                    <a href="../homepage/index.html">
+                        <li class="flipkart-title">Flipkart</li>
+                    </a>
+                    <p class="explore">Explore <span>Plus</span><img src="../assets/nav-plus.png" alt="plus-img"></p>
+                </div>
+                <div class="search-container">
+                    <input type="text" id="search-box" placeholder="Search for products, brand and more">
+                    <div class="search-icon-container">
+                        <i class="fa-solid fa-magnifying-glass fa-l" id="search-icon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-profile-container">
+                <div class="user-profile">
+                    <li>Deepak <span><i class="fa-solid fa-angle-down"></i></span></li>
+                    <i class="fa-solid fa-play dropdown-icon1"></i>
+                    <div id="profile-section-elements">
+                        <div class="profile-elements">
+                            <i class="fa-solid fa-user fa-2xs"></i>
+                            <span>My Profile</span>
+                        </div>
+                        <div class="profile-elements">
+                            <i class="fa-solid fa-file-medical fa-2xs"></i>
+                            <span>Orders</span>
+                        </div>
+                        <div class="profile-elements">
+                            <i class="fa-solid fa-heart fa-2xs"></i>
+                            <span>Wishlist</span>
+                        </div>
+                        <div class="profile-elements">
+                            <i class="fa-solid fa-bell fa-2xs"></i>
+                            <span>Notifications</span>
+                        </div>
+                        <div class="profile-elements">
+                            <i class="fa-solid fa-power-off fa-2xs"></i>
+                            <span id="logout">Logout</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="../cartpage/cart.html" id="cart">
+                    <i class="fa-solid fa-cart-shopping"></i><span>Cart</span>
+                </a>
+                <!-- cart Count -->
+                <div id="cart-count"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <div class="main">
+        <section class="product-container">
+            <div id="product-img-container" class="product-img-container">
+                <div id="wishlist-icon" class="wishlist-icon">
+                    <i class="fa-regular fa-heart fa-xl" id="wishlist"></i>
+                </div>
+                <img src="product-img-container.jpg" class="product-img" id="product-img">
+            </div>
+
+            <div class="product-details" id="product-details">
+                <h3 class="product-title" id="product-title">Product Title</h3>
+                <div class="rating">
+                    <div class="rating-badge">
+                        <span class="rating" id="rating">4.5</span>
+                        <img src="../assets/star.svg" alt="star-svg">
+                    </div>
+                    <span class="rating-count" id="rating-count">45 Ratings</span>
+                </div>
+                <p class="product-price" id="product-price">Price: $99.99</p>
+                <p class="product-description" id="product-description">Product description goes here.</p>
+                <div class="buttons">
+                    <button class="buy-now-button">BUY NOW</button>
+                    <button class="add-to-cart-button">ADD TO CART</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-container">
+
+            <div class="product-info">
+                <img src="../assets/11.webp" class="scale-img">
+                <div class="about-product">
+                    <p>Samsung S21 FE</p>
+                    <p>incl of offers</p>
+                    <p>from $3,999*</p>
+                </div>
+            </div>
+            <div class="product-info">
+                <img src="../assets/16.webp" class="scale-img">
+                <div class="about-product">
+                    <p>KenBerry Alpha Duke </p>
+                    <p>from $99*</p>
+                    <p>Combo Bottle</p>
+                </div>
+            </div>
+            <div class="product-info">
+                <img src="../assets/13.webp" class="scale-img">
+                <div class="about-product">
+                    <p>Kent RO Purifier</p>
+                    <p>From $159*</p>
+                    <p>Water Purifier</p>
+                </div>
+            </div>
+            <div class="product-info">
+                <img src="../assets/14.webp" class="scale-img">
+                <div class="about-product">
+                    <p>Moto G73</p>
+                    <p>incl of offers</p>
+                    <p>Just $199*</p>
+                </div>
+            </div>
+            <div class="ad-container">
+                <img src="../assets/15.webp" class="boat-bluetooth-ad-cover">
+            </div>
+        </section>
+
+        <section class="big-saving-day-container">
+            <div>
+                <img src="../assets/20.webp">
+            </div>
+            <div>
+                <img src="../assets/21.webp">
+            </div>
+            <div>
+                <img src="../assets/22.webp">
+            </div>
+        </section>
+
+        <section class="product-container">
+            <div class="product-info">
+                <img src="../assets/28.webp" class="scale-img">
+                <div class="about-product">
+                    <p>Adidas, Puma & more</p>
+                    <p>Min 50% Off</p>
+                    <p>Women's Sports Shoes</p>
+                </div>
+            </div>
+            <div class="product-info">
+                <img src="../assets/29.webp" class="scale-img">
+                <div class="about-product">
+                    <p>Nike, Sports Sneakers</p>
+                    <p>Min 50% Off</p>
+                    <p>Men's Shoes</p>
+                </div>
+            </div>
+            <div class="product-info">
+                <img src="../assets/30.webp" class="scale-img">
+                <div class="about-product">
+                    <p>Puma, ADIDAS, Reebok...</p>
+                    <p>Up to 80% Off</p>
+                    <p>Casual T-Shirt</p>
+                </div>
+            </div>
+            <div class="product-info">
+                <img src="../assets/31.webp" class="scale-img">
+                <div class="about-product">
+                    <p>Woodland, Crocs, Red Tape...</p>
+                    <p>Min 40% Off</p>
+                    <p>Men's Casual Shoes....</p>
+                </div>
+            </div>
+            <div class="product-info">
+                <img src="../assets/32.webp" class="scale-img">
+                <div class="about-product">
+                    <p>Puma, ADIDAS, Reebok...</p>
+                    <p>Up to 80% Off</p>
+                    <p>Trackpants, Shorts</p>
+                </div>
+            </div>
+            <div class="product-info">
+                <img src="../assets/33.webp" class="scale-img">
+                <div class="about-product">
+                    <p>Sparx, Campus, & More...</p>
+                    <p>Min 40% Off</p>
+                    <p>Men's Casual Shoes....</p>
+                </div>
+            </div>
+        </section>
     </div>
+
+
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/5ad84bde35.js" crossorigin="anonymous"></script>
+
     <script src="single-product.js"></script>
 </body>
 

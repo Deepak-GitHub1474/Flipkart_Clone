@@ -21,7 +21,7 @@ body {
 }
 
 .navbar {
-    height: 60px;
+    height: 4rem;
     background-color: #2874f0;
     display: flex;
     align-items: center;
@@ -41,7 +41,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 6.5rem;
 }
 
 .nav-title-container {
@@ -73,20 +72,21 @@ body {
     text-decoration: underline;
 }
 
-.typing-container {
+.search-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 15px;
+    margin-left: 1rem;
     border-radius: 2px;
     background-color: #fff;
+    position: relative;
 }
 
 #search-box {
     outline: none;
     border: none;
     height: 35px;
-    width: 500px;
+    width: 30vw;
     text-indent: 10px;
     font-size: 15px;
     border-radius: 2px;
@@ -94,14 +94,14 @@ body {
 
 .search-icon-container {
     height: 35px;
-    width: 50px;
+    width: 35px;
+    line-height: 35px;
+    text-align: center;
 }
 
 #search-icon {
     color: #2874f0;
     font-size: 18px;
-    padding-top: 8px;
-    padding-left: 10px;
     cursor: pointer;
 }
 
@@ -112,7 +112,6 @@ body {
     gap: 2rem;
     font-weight: 600;
     font-size: 15px;
-    margin-left: 4.5rem;
     position: relative;
 }
 
@@ -145,7 +144,7 @@ a {
     cursor: pointer;
 }
 
-.user-name {
+.user-profile {
     position: relative;
     top: 12px;
 }
@@ -162,13 +161,13 @@ a {
     cursor: pointer;
 }
 
-.user-name:hover #profile-section-elements {
+.user-profile:hover #profile-section-elements {
     display: block;
     z-index: 1;
     visibility: visible;
 }
 
-.user-name:hover .dropdown-icon1 {
+.user-profile:hover .dropdown-icon1 {
     visibility: visible;
 }
 
@@ -194,72 +193,25 @@ a {
     font-size: 14px;
 }
 
-.more-container {
-    position: relative;
-    top: 12px;
-}
-
-#more-section-element {
-    box-shadow: #32325d40 0px 2px 5px -1px, #0000004d 0px 1px 3px -1px;
-    border-radius: 4px;
-    background-color: #fff;
-    position: absolute;
-    left: -4rem;
-    top: 2.5rem;
-    display: none;
-    cursor: pointer;
-}
-
-.more-container:hover #more-section-element {
-    display: block;
-    z-index: 1;
-}
-
-.more-elements i {
-    color: #fff;
-    background-color: #2874f0;
-    height: 20px;
-    width: 20px;
-    line-height: 20px;
-    text-align: center;
-    border-radius: 50%;
-}
-
-.more-elements {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    width: 220px;
-    padding: 15px 10px;
-    box-shadow: 0 0 1px #c8c7c7;
-}
-
-.dropdown-icon1,
-.dropdown-icon2 {
+.dropdown-icon1 {
     color: #fff;
     transform: rotate(-90deg);
     margin-left: 26px;
     visibility: hidden;
 }
 
-.more-container:hover .dropdown-icon2 {
-    visibility: visible;
-}
+/* Item Category Section */
 
-.navbar-submenu-container {
+.item-collection-container {
     display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 5rem;
+    background-color: #fff;
+    margin-top: 3.5rem;
 }
 
 .item-collection-img {
     width: 65px;
-}
-
-.item-collection-container {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 10px 90px;
-    background-color: #fff;
-    margin-top: 3.5rem;
 }
 
 .item-collection-div {
@@ -267,8 +219,9 @@ a {
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 0.8rem;
     font-weight: 600;
+    text-align: center;
 }
 
 /* Offer Section */
@@ -283,10 +236,10 @@ a {
 .offer-section .offer-img {
     position: absolute;
     opacity: 0;
-    width: 98%;
+    width: 100%;
     height: 100%;
     animation: slideShow 20s infinite;
-    margin: 15px 10px;
+    margin: 15px 0px;
     cursor: pointer;
 }
 
@@ -333,33 +286,14 @@ a {
     }
 }
 
-.prev-next-btn-container {
-    margin: -12rem 1.2rem 0 0.55rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-#prev-btn,
-#next-btn {
-    height: 100px;
-    width: 50px;
-    color: #000000;
-    z-index: 1;
-    font-size: 36px;
-    font-weight: bold;
-    background: #fff;
-    outline: none;
-    border: none;
-    border-radius: 4px;
-}
-
 .bank-offers-container {
-    display: grid;
-    place-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #fff;
     width: 98%;
     margin-left: 10px;
-    margin-top: 6.4rem;
+    margin-top: 1rem;
     cursor: pointer;
 }
 
@@ -369,7 +303,6 @@ a {
     justify-content: center;
     gap: 3rem;
     box-shadow: 0 0 1px #919191;
-    width: 799px;
     padding: 10px;
     margin: 15px;
 }
@@ -384,25 +317,47 @@ img[alt="kotak-logo-img"] {
     color: gray;
     transform: rotate(-90deg);
     display: inline-block;
-    font-size: 14px;
+    font-size: 1rem;
     position: relative;
     bottom: 1.5rem;
 }
 
 .span1 {
-    font-size: 28px;
-    font-weight: 900;
+    font-size: 1.8rem;
+    font-weight: bold;
 }
 
-.product-container-collection,
-.view-more-items {
+/* Product Section */
+
+.product-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
+    width: 98%;
+    margin-left: 10px;
+    margin-top: 0.5rem;
+    padding-top: 0.3rem;
 }
 
-.product-collection {
+.product {
     width: 200px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.product img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.product img:hover {
+    transform: scale(1.1);
 }
 
 .product-title {
@@ -419,68 +374,6 @@ img[alt="kotak-logo-img"] {
     cursor: pointer;
 }
 
-.view-all-items {
-    background-color: #2874f0;
-    color: #fff;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 10px 15px;
-    border-radius: 2px;
-    margin-top: 20px;
-}
-
-.bgi {
-    width: 220px;
-    height: 140px;
-    margin-top: 5px;
-}
-
-.boat-bluetooth-ad-cover {
-    width: 220px;
-    margin-right: 5px;
-}
-
-.big-saving-day-container {
-    background-color: #fff;
-    width: 98%;
-    margin-left: 10px;
-    margin-top: 0.2rem;
-    padding-top: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.big-saving-day-container div {
-    cursor: pointer;
-}
-
-.scale-img:hover {
-    transform: scale(1.04);
-}
-
-/* Product Section */
-
-.product-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    width: 98%;
-    margin-left: 20px;
-    margin-top: 0.5rem;
-    padding-top: 0.3rem;
-}
-
-.product {
-    width: 200px;
-    margin: 10px;
-    padding: 10px;
-    background-color: #fff;
-    text-align: center;
-    border-radius: 10px;
-}
-
 .product p:nth-child(2) {
     margin-top: 10px;
     font-size: 14px;
@@ -494,19 +387,7 @@ img[alt="kotak-logo-img"] {
     color: #808080;
 }
 
-.product img {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-    cursor: pointer;
-}
-
-.product img:hover {
-    transform: scale(1.1);
-}
-
-.add-to-cart,
-.buy {
+.add-to-cart {
     margin-top: 10px;
     background-color: #000;
     color: #fff;
@@ -517,57 +398,6 @@ img[alt="kotak-logo-img"] {
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
-
-.cart-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.cart-title {
-    width: 100%;
-    text-align: center;
-    background-color: #fff;
-    color: #333;
-    padding: 10px;
-}
-
-.cart-item {
-    width: 200px;
-    margin: 10px;
-    padding: 10px;
-    background-color: #fff;
-    text-align: center;
-    border-radius: 10px;
-}
-
-.cart-item img {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-}
-
-.cart-item-details {
-    margin-top: 10px;
-    color: #333;
-}
-
-.cart-item-price {
-    font-weight: bold;
-}
-
-.cart-item-button {
-    margin-top: 10px;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    padding: 5px 40px;
-    cursor: pointer;
-    border-radius: 5px;
 }
 
 /* Footer Section */
@@ -582,6 +412,8 @@ img[alt="kotak-logo-img"] {
     display: flex;
     justify-content: space-between;
     padding: 2rem 4rem;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .footer-container1 {
@@ -626,9 +458,110 @@ img[alt="kotak-logo-img"] {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    gap: 0.3rem;
     height: 10vh;
 }
 
 .footer-bottom-section span {
     font-size: 14px;
+}
+
+/* Media Query */
+
+@media (max-width:768px) {
+
+    #search-box {
+        width: 0px;
+    }
+
+    .item-collection-container {
+        justify-content: space-between;
+        padding: 10px;
+        overflow: scroll;
+    }
+
+    .item-collection-container::-webkit-scrollbar {
+        width: 0;
+        background-color: transparent;
+        background-color: #2874f0;
+    }
+
+    .item-collection-img {
+        width: 50px;
+    }
+
+    .item-collection-div {
+        font-size: 0.6rem;
+        min-width: 80px;
+    }
+
+    .offer-section {
+        height: 150px;
+    }
+}
+
+@media (max-width:1024px) {
+    .bank-offers {
+        flex-direction: column;
+    }
+
+    .bank-offers {
+        gap: 1rem;
+    }
+
+    .span2 {
+        font-size: 0.8rem;
+    }
+
+    .span1 {
+        font-size: 1.5rem;
+    }
+
+    .product-container-collection {
+        display: none;
+    }
+
+    .product {
+        width: 130px;
+    }
+
+    .product img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .add-to-cart {
+        padding: 5px 31px;
+    }
+
+    .footer-seperator1 {
+        display: none;
+    }
+
+    .footer-bottom-section {
+        flex-direction: column;
+        height:auto;
+        padding: 1rem 0.2rem;
+        /* align-items: start; */
+    }
+    .payment-gateway-img {
+        width: 280px;
+    }
+}
+
+@media (min-width:769px) and (max-width: 1100px) {
+    .item-collection-container {
+        justify-content: space-between;
+        padding: 10px;
+        overflow: scroll;
+    }
+
+    .item-collection-container::-webkit-scrollbar {
+        width: 0;
+        background-color: transparent;
+    }
+
+    .item-collection-div {
+        min-width: 120px;
+    }
 }
