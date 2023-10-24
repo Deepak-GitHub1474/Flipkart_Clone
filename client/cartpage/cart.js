@@ -10,6 +10,15 @@ const placeOrderButton = document.getElementById("place-order-btn");
 // Header Search box controll
 searchIcon.addEventListener("click", (e) => {
     e.stopPropagation(); // Prevent the click event from propagating to the body
+
+    const searchQuery = searchBox.value.trim().toLowerCase();
+
+    if (searchQuery.length > 0) {
+        // Create a URL with the search query as a parameter and navigate to the home page
+        const searchURL = `../homepage/index.html?searchQuery=${searchQuery}`;
+        window.location.href = searchURL;
+    }
+
     if (window.innerWidth < 768) {
         searchBox.style.width = "80vw";
         flipkartTitleContainer.style.display = "none";
@@ -31,16 +40,19 @@ searchBox.addEventListener("click", (e) => {
     e.stopPropagation();
 });
 
-window.addEventListener("resize", () => {
-    flipkartTitleContainer.style.display = "block";
-    cartProfileContainer.style.display = "flex";
-    if (window.innerWidth > 768) {
-        searchBox.style.width = "30vw";
-    } else {
-        searchBox.style.width = "0";
-    }
-});
+if (window.innerWidth > 500) {
+    window.addEventListener("resize", () => {
+        flipkartTitleContainer.style.display = "block";
+        cartProfileContainer.style.display = "flex";
+        if (window.innerWidth > 768) {
+            searchBox.style.width = "30vw";
+        } else {
+            searchBox.style.width = "0";
+        }
+    });
+}
 
+// Event Listener on page load
 document.addEventListener("DOMContentLoaded", () => {
     displayCart();
     updatePriceDetails();

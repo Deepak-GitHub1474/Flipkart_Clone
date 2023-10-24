@@ -29,16 +29,17 @@ searchBox.addEventListener("click", (e) => {
     e.stopPropagation();
 });
 
-window.addEventListener("resize", () => {
-    flipkartTitleContainer.style.display = "block";
-    cartProfileContainer.style.display = "flex";
-    if (window.innerWidth > 768) {
-        searchBox.style.width = "30vw";
-    } else {
-        searchBox.style.width = "0";
-    }
-});
-
+if (window.innerWidth > 500) {
+    window.addEventListener("resize", () => {
+        flipkartTitleContainer.style.display = "block";
+        cartProfileContainer.style.display = "flex";
+        if (window.innerWidth > 768) {
+            searchBox.style.width = "30vw";
+        } else {
+            searchBox.style.width = "0";
+        }
+    });
+}
 
 // Storing product in local storage for cart functionality
 const cart = [];
@@ -150,12 +151,29 @@ cartCount.onclick = () => {
 }
 
 // Search Item
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    // Retrieve the search query from the URL parameter
+    const searchQuery = new URLSearchParams(window.location.search).get("searchQuery");
+
+    if (searchQuery) {
+        searchBox.value = searchQuery;
+        getProductByCategory(searchQuery); // Perform the search immediately
+    } 
+});
+
 async function getProductByCategory(searchQuery) {
     try {
-        const url = `https://fakestoreapi.com/products/category/${searchQuery}`
-        const response = await fetch(url);
+        const response = await fetch("https://fakestoreapi.com/products");
         const products = await response.json();
-        displayProductByCategory(products);
+
+        // Filter products based on partial category match
+        const filteredProducts = products.filter(product => {
+            return product.category.toLowerCase().includes(searchQuery);
+        });
+
+        displayProductByCategory(filteredProducts);
     } catch (error) {
         console.log("Error:", error);
     }
@@ -172,7 +190,7 @@ function displayProductByCategory(products) {
 
 // product Search
 searchIcon.addEventListener("click", () => {
-    const searchQuery = searchBox.value.trim();
+    const searchQuery = searchBox.value.trim().toLowerCase();
 
     if (searchQuery.length > 0) {
         getProductByCategory(searchQuery);
@@ -182,14 +200,17 @@ searchIcon.addEventListener("click", () => {
 // Reload the product when the search box is empty
 searchBox.addEventListener("input", () => {
     const searchQuery = searchBox.value.trim();
-
     if (searchQuery.length < 1) {
-        location.reload();
+        window.location.href = "../homepage/index.html";
     }
 });
 
-// Initial products display (without search query to show popular products, for example--> electronics or keep empty)
-// getProductByCategory("electronics");
+/* 
+Initial products display (without search query to show popular products, 
+for example--> electronics or keep empty to show all product) 
+
+getProductByCategory("electronics");
+*/
 
 // ---------------------------------------------------------------------//
 
