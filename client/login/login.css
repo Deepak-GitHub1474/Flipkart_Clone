@@ -1,51 +1,60 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: #f1f3f6;
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.note {
+  color: #357ae8;
+  margin: 1rem 0;
 }
 
 .main-container {
-  display: flex;
-  justify-content: center;
-  margin: 5rem 1rem 1rem 1rem;
-}
-
-.box1 {
-  background-color: #357ae8;
-  width: 240px;
-  height: 500px;
-  padding: 0 1rem 1rem 2rem;
-  background-image: url("https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/login_img_c4a81e.png");
-  background-position: center 85%;
-  background-repeat: no-repeat;
-  box-shadow: 0 0 10px #262626;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-
-.box1 h1 {
-  color: #fff;
-}
-
-.box1 p {
-  color: #ddd;
-  max-width: 180px;
-  line-height: 30px;
-  font-size: 17px;
-  font-weight: 400;
-}
-
-.login-container {
-  width: 400px;
-  height: 500px;
-  padding: 0 1rem 1rem 2rem;
+  width: 350px;
   box-shadow: 0 0 10px #262626;
   background-color: #fff;
+  border-radius: 5px;
+  padding-bottom: 1rem;
+}
+
+.top-container {
+  background-color: #357ae8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+}
+
+.top-container h1 {
+  color: #fff;
+  text-align: center;
+}
+
+.top-container p {
+  color: #ddd;
+  text-align: center;
+  line-height: 25px;
+}
+
+.top-container img {
+  width: 60%;
 }
 
 .form-container {
-  padding-top: 2rem;
+  padding: 0.8rem;
 }
 
 .form-input {
@@ -60,7 +69,7 @@ label {
 
 input[type="text"],
 input[type="password"] {
-  width: 90%;
+  width: 100%;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ddd;
@@ -68,15 +77,14 @@ input[type="password"] {
 }
 
 .btn {
-  display: block;
-  width: 95%;
+  width: 100%;
   padding: 10px;
   text-align: center;
   font-size: 16px;
   font-weight: bold;
   color: #fff;
   background: #fb641b;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 1px 2px 0 #00000033;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -87,17 +95,25 @@ input[type="password"] {
 }
 
 .links {
-  text-align: center;
-  margin-top: 20px;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
 }
 
 .links a {
   color: #262626;
   text-decoration: none;
-  margin: 0 10px;
+  margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+  .main-container {
+    width: 400px;
+  }
+}
+
+@media (max-width: 290px) {
+  .main-container {
+    width: 270px;
+  }
 }

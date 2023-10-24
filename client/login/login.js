@@ -1,32 +1,53 @@
 const loginBtn = document.getElementById("login-btn");
 
-loginBtn.addEventListener("click", async (event) => {
-  event.preventDefault();
+// Temp code for demo //
 
+loginBtn.addEventListener("click", () => {
   const userName = document.getElementById("username").value;
   const userPassword = document.getElementById("password").value;
+
+  if (userName && userPassword) {
+    window.location.href = "../homepage/index.html";
+    return;
+  } else {
+    alert("All input fields are required");
+  }
+
   const userData = {
     username: userName,
     password: userPassword,
   };
+  console.log(userData);
+})
 
-  await loginUser(userData);
-});
 
-const loginUser = async (payload) => {
-  try {
-    const resp = await fetch("https://flipkart-5cw9.onrender.com/login", {
-      method: "POST",
-      credentials: 'include',
-      redirect: 'follow',
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+// loginBtn.addEventListener("click", async (event) => {
+//   event.preventDefault();
 
-    const data = await resp.json();
-    // console.log(data); // Check the response data in the console
-    window.location.href = "http://127.0.0.1:5500/client/homepage/index.html";
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+//   const userName = document.getElementById("username").value;
+//   const userPassword = document.getElementById("password").value;
+//   const userData = {
+//     username: userName,
+//     password: userPassword,
+//   };
+
+//   await loginUser(userData);
+// });
+
+// const loginUser = async (payload) => {
+//   try {
+//     const resp = await fetch("https://flipkart-5cw9.onrender.com/login", {
+//       method: "POST",
+//       credentials: 'include',
+//       redirect: 'follow',
+//       headers: { "content-type": "application/json" },
+//       body: JSON.stringify(payload),
+//     });
+
+//     // const data = await resp.json();
+//     // console.log(data); // Check the response data in the console
+//     window.location.href = "http://127.0.0.1:5500/client/homepage/index.html";
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// };

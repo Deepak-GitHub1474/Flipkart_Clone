@@ -1,42 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flipkart Register</title>
+    <link rel="shortcut icon" href="../assets/flipkart-logo-fav-icon.png" type="image/x-icon">
     <link rel="stylesheet" href="register.css">
-    <link rel="shortcut icon" href="../images/flipkart-logo-fav-icon.png" type="image/x-icon">
 </head>
 
 <body>
+    <marquee behavior="scroll" direction="left">
+        <p class="note">No backend integration for user login and signup authentication/authorization added. This
+            registration page is only for demonstraion purpose.Although I've implemented backend logic, but didn't
+            integrated with frontend.</p>
+    </marquee>
+
     <div class="main-container">
-        <div class="box1">
+        <div class="top-container">
             <h1>Sign Up</h1>
             <p>Get access to your Orders, Wishlist and Recommendations</p>
+            <img src="../assets/login_signup_cover.png" alt="login_signup_cover">
         </div>
-        <div class="signup-container">
-            <form method="POST" class="form-container">
-                <div class="form-input">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Enter your username">
-                </div>
-                <div class="form-input">
-                    <label for="email">Email</label>
-                    <input type="text" id="email" name="email" placeholder="Enter your Email">
-                </div>
-                <div class="form-input">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password">
-                </div>
-                <button id="submit" type="submit" class="btn">Sign Up</button>
-            </form>
-
-            <div class="links">
-                <a href="#">Forgot Password?</a>
-                <a href="../login/login.html">Log In</a>
+        <form class="form-container">
+            <div class="form-input">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username">
             </div>
+            <div class="form-input">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" placeholder="Enter your Email">
+            </div>
+            <div class="form-input">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+            </div>
+            <button id="submit" type="submit" class="btn">Sign Up</button>
+        </form>
+        <div class="links">
+            <a href="#">Forgot Password?</a>
+            <a href="../login/login.html">Log In</a>
         </div>
     </div>
+
+    <script src="register.js"></script>
 </body>
-<script src="register.js"></script>
 
 </html>

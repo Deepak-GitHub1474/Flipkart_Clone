@@ -89,7 +89,7 @@ function createProductElement(product) {
     addToCartButton.classList.add("add-to-cart");
     addToCartButton.addEventListener("click", () => {
         const productWithQuantity = { ...product, quantity: 1 };
-        console.log(productWithQuantity);
+        // console.log(productWithQuantity);
         addToCart(productWithQuantity);
 
     });
@@ -115,7 +115,8 @@ function addToCart(product) {
 
     if (existingProduct) {
         // If the product exists, update its quantity
-        existingProduct.quantity = 1;
+        // existingProduct.quantity = 1;
+        alert("item is already saved in cart")
     } else {
         // If the product doesn"t exist, add it to the cart
         product.quantity = 1;
@@ -148,7 +149,7 @@ cartCount.onclick = () => {
     window.location.href = "../cartpage/cart.html"
 }
 
-// Search Item  // TODO STYLING
+// Search Item
 async function getProductByCategory(searchQuery) {
     try {
         const url = `https://fakestoreapi.com/products/category/${searchQuery}`
@@ -164,30 +165,9 @@ function displayProductByCategory(products) {
     productContainer.innerHTML = ""; // Clear previous search results
 
     products.forEach((product) => {
-        const productElement = createproductElement(product);
+        const productElement = createProductElement(product);
         productContainer.appendChild(productElement);
     });
-}
-
-function createproductElement(product) {
-    const productElement = document.createElement("div");
-    productElement.classList.add("product");
-
-    const imageElement = document.createElement("img");
-    imageElement.src = product.image;
-    productElement.appendChild(imageElement);
-
-    const titleElement = document.createElement("p");
-    titleElement.textContent = product.title;
-    titleElement.classList.add("product-title");
-    productElement.appendChild(titleElement);
-
-    const addToCartButton = document.createElement("button");
-    addToCartButton.textContent = "Add to Cart";
-    addToCartButton.classList.add("add-to-cart");
-    productElement.appendChild(addToCartButton);
-
-    return productElement;
 }
 
 // product Search
@@ -211,3 +191,11 @@ searchBox.addEventListener("input", () => {
 // Initial products display (without search query to show popular products, for example--> electronics or keep empty)
 // getProductByCategory("electronics");
 
+// ---------------------------------------------------------------------//
+
+// Temp code for demo //
+const logout = document.getElementById("logout");
+
+logout.addEventListener("click", () => {
+    window.location.href = "../login/login.html";
+})

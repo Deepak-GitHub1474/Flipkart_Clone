@@ -166,7 +166,7 @@ function createCartItemElement(product) {
     priceContainer.classList.add("price-container");
 
     const price = document.createElement("h4");
-    price.textContent = `₹${product.price}`;
+    price.textContent = `$${product.price}`;
     priceContainer.appendChild(price);
     price.classList.add("price");
 
@@ -234,12 +234,12 @@ function updatePriceDetails() {
     cartCountPlaceholder.textContent = totalItems;
 
     const cartTotalPricePlaceholder = document.getElementById("cart-total-price-placeholder");
-    cartTotalPricePlaceholder.textContent = `₹${totalPrice}`;
+    cartTotalPricePlaceholder.textContent = `$${totalPrice}`;
 
     const totalAmountPlaceholder = document.getElementById("total-amount-placeholder");
-    const deliveryCharges = 40; // Assuming delivery charges are fixed at ₹40
+    const deliveryCharges = 2; // Assuming delivery charges are fixed at $40
     const totalAmount = (parseFloat(totalPrice) + deliveryCharges).toFixed(2);
-    totalAmountPlaceholder.textContent = `₹${totalAmount}`;
+    totalAmountPlaceholder.textContent = `$${totalAmount}`;
 }
 
 // Function to remove item from cart
@@ -261,23 +261,11 @@ function removeItemFromCart(productToRemove) {
     }
 }
 
-// Place order
-const confettiContainer = document.querySelector(".confetti-container");
-placeOrderButton.addEventListener("click", () => {
-    // Clear the local storage (remove all items from the cart)
-    localStorage.removeItem("cart");
-    confettiContainer.style.display = "block"
-})
+// ---------------------------------------------------------------------//
 
-function fallingCoin() {
-    coin.style.left = `${Math.random() * 100}vw`;
-}
+// Temp code for demo //
+const logout = document.getElementById("logout");
 
-setInterval(fallingCoin, 300);
-
-// Close Placed Order Container
-const closeConfettiContainer = document.getElementById("close-confetti-container");
-closeConfettiContainer.addEventListener("click", () => {
-    confettiContainer.style.display = "none"
-    location.reload();
+logout.addEventListener("click", () => {
+    window.location.href = "../login/login.html";
 })

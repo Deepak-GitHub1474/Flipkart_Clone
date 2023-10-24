@@ -1,8 +1,9 @@
-// Header Search box controll
 const searchBox = document.getElementById("search-box");
 const searchIcon = document.querySelector(".search-icon-container");
 const flipkartTitleContainer = document.querySelector(".nav-title-container");
 const cartProfileContainer = document.querySelector(".cart-profile-container");
+const addToCartBtn = document.querySelector(".add-to-cart-button");
+const cartCount = document.getElementById("cart-count");
 
 searchIcon.addEventListener("click", (e) => {
     e.stopPropagation(); // Prevent the click event from propagating to the body
@@ -37,7 +38,7 @@ window.addEventListener("resize", () => {
     }
 });
 
-// Products
+// Product Details
 const productId = new URLSearchParams(window.location.search).get('id');
 
 document.addEventListener('DOMContentLoaded', getProduct);
@@ -47,6 +48,11 @@ async function getProduct() {
         const response = await fetch(`https://fakestoreapi.com/products/${productId}`);
         const product = await response.json();
         displayProduct(product);
+
+        addToCartBtn.addEventListener("click", () => {
+            addToCart(product);
+        });
+
     } catch (error) {
         console.log('Error:', error);
     }
@@ -83,3 +89,35 @@ wishlistHeart.onclick = () => {
     }
 }
 
+// Adding the item to the cart
+function addToCart(product) {
+    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingProduct = existingCart.find(item => item.id === product.id);
+    if (existingProduct) {
+        // existingProduct.quantity = 1;
+        alert("item is already saved in cart")
+        // Or Redirect to the cart
+    } else {
+        product.quantity = 1;
+        existingCart.push(product);
+    }
+    localStorage.setItem("cart", JSON.stringify(existingCart));
+    updateCartCount();
+}
+
+// Updating the total number of item avilable in cart and show on home page
+function updateCartCount() {
+    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const totalQuantity = existingCart.length;
+    cartCount.textContent = totalQuantity;
+}
+updateCartCount();
+
+// ---------------------------------------------------------------------//
+
+// Temp code for demo //
+const logout = document.getElementById("logout");
+
+logout.addEventListener("click", () => {
+    window.location.href = "../login/login.html";
+})
