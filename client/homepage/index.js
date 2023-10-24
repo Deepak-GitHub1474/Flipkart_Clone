@@ -212,9 +212,20 @@ for example--> electronics or keep empty to show all product)
 getProductByCategory("electronics");
 */
 
-// ---------------------------------------------------------------------//
 
-// Temp code for demo //
+// ----------------------- Under Impletation ---------------------------//
+
+const category = document.querySelectorAll(".item-collection-div")
+
+category.forEach((element) => {
+    element.addEventListener("click", () => {
+        alert("Under Implementation!");
+    });
+});
+
+// ----------------------Temp code for demo-----------------------//
+
+//  //
 const logout = document.getElementById("logout");
 
 logout.addEventListener("click", () => {
