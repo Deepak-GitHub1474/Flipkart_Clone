@@ -2,10 +2,27 @@ const searchBox = document.getElementById("search-box");
 const searchIcon = document.querySelector(".search-icon-container");
 const flipkartTitleContainer = document.querySelector(".nav-title-container");
 const cartProfileContainer = document.querySelector(".cart-profile-container");
-
 const minus = document.querySelector(".minus");
 const plus = document.querySelector(".plus");
 const placeOrderButton = document.getElementById("place-order-btn");
+const userName = document.getElementById('username');
+
+// Make a GET request to your protected route
+fetch('http://127.0.0.1:8081/', { method: 'GET', credentials: 'include' })
+    .then(response => response.json())
+    .then(data => {
+        if (data.user) {
+            const user = data.user;
+            const username = user.username;
+            userName.textContent = username.charAt(0).toUpperCase() + username.slice(1);
+        } else {
+            // User is not authenticated, handle accordingly
+            console.log('User is not authenticated');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 
 // Header Search box controll
 searchIcon.addEventListener("click", (e) => {
@@ -133,8 +150,8 @@ function createCartItemElement(product) {
         // Update the quantity displayed on the cart item
         quantityCount.textContent = product.quantity;
 
-         // Update the cart item quantity in LocalStorage
-         updateCartItemQuantity(product);
+        // Update the cart item quantity in LocalStorage
+        updateCartItemQuantity(product);
         // Recalculate the price details
         updatePriceDetails();
     }
@@ -147,8 +164,8 @@ function createCartItemElement(product) {
             // Update the quantity displayed on the cart item
             quantityCount.textContent = product.quantity;
 
-             // Update the cart item quantity in LocalStorage
-        updateCartItemQuantity(product);
+            // Update the cart item quantity in LocalStorage
+            updateCartItemQuantity(product);
             // Recalculate the price details
             updatePriceDetails();
         }

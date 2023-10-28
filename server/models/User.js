@@ -1,20 +1,19 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    username:
-    {
+    username:{
+        type: String,
+        required: true,
+        maxLength: [20, "Name should be less than 20 char"]
+    },
+
+    email:{
         type: String,
         required: true,
         unique: true
     },
-    email:
-    {
-        type: String,
-        required: true,
-        unique: true
-    },
-    password:
-    {
+
+    password:{
         type: String,
         required: true
     }

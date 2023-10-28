@@ -5,8 +5,9 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 const app = express();
+const PORT = process.env.PORT
 
-// Middleware
+// Middlewares
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors(
@@ -21,8 +22,7 @@ const authRoutes = require("./routes/auth");
 app.use("/", authRoutes);
 
 // Listening Server and DB Connection
-const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
     connectDB();
-    console.log("Server is Running on PORT", process.env.PORT);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });

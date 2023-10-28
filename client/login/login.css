@@ -13,17 +13,13 @@ body {
   justify-content: center;
 }
 
-.note {
-  color: #357ae8;
-  margin: 1rem 0;
-}
-
 .main-container {
   width: 350px;
   box-shadow: 0 0 10px #262626;
   background-color: #fff;
   border-radius: 5px;
   padding-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 .top-container {

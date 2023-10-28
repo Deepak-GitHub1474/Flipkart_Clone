@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const secretKey = 'your-secret-key';
+const secretKey = process.env.SECRET_KEY;
 
 const authenticateUser = (req, res, next) => {
   const token = req.cookies.token;

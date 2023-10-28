@@ -4,6 +4,24 @@ const searchBox = document.getElementById("search-box");
 const searchIcon = document.querySelector(".search-icon-container");
 const flipkartTitleContainer = document.querySelector(".nav-title-container");
 const cartProfileContainer = document.querySelector(".cart-profile-container");
+const userName = document.getElementById('username');
+
+// Make a GET request to your protected route
+fetch('http://127.0.0.1:8081/', { method: 'GET', credentials: 'include' })
+    .then(response => response.json())
+    .then(data => {
+        if (data.user) {
+            const user = data.user;
+            const username = user.username;
+            userName.textContent = username.charAt(0).toUpperCase() + username.slice(1);
+        } else {
+            // User is not authenticated, handle accordingly
+            console.log('User is not authenticated');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 
 // Header Search box controll
 searchIcon.addEventListener("click", (e) => {
@@ -160,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (searchQuery) {
         searchBox.value = searchQuery;
         getProductByCategory(searchQuery); // Perform the search immediately
-    } 
+    }
 });
 
 async function getProductByCategory(searchQuery) {
@@ -225,7 +243,6 @@ category.forEach((element) => {
 
 // ----------------------Temp code for demo-----------------------//
 
-//  //
 const logout = document.getElementById("logout");
 
 logout.addEventListener("click", () => {
