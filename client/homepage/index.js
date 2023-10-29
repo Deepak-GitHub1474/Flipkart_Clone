@@ -5,23 +5,7 @@ const searchIcon = document.querySelector(".search-icon-container");
 const flipkartTitleContainer = document.querySelector(".nav-title-container");
 const cartProfileContainer = document.querySelector(".cart-profile-container");
 const userName = document.getElementById('username');
-
-// Make a GET request to your protected route
-fetch('http://127.0.0.1:8081/', { method: 'GET', credentials: 'include' })
-    .then(response => response.json())
-    .then(data => {
-        if (data.user) {
-            const user = data.user;
-            const username = user.username;
-            userName.textContent = username.charAt(0).toUpperCase() + username.slice(1);
-        } else {
-            // User is not authenticated, handle accordingly
-            console.log('User is not authenticated');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+const logout = document.getElementById("logout");
 
 // Header Search box controll
 searchIcon.addEventListener("click", (e) => {
@@ -108,9 +92,7 @@ function createProductElement(product) {
     addToCartButton.classList.add("add-to-cart");
     addToCartButton.addEventListener("click", () => {
         const productWithQuantity = { ...product, quantity: 1 };
-        // console.log(productWithQuantity);
         addToCart(productWithQuantity);
-
     });
 
     productElement.appendChild(addToCartButton);
@@ -241,10 +223,39 @@ category.forEach((element) => {
     });
 });
 
-// ----------------------Temp code for demo-----------------------//
+// <======================= Backend Request =======================> //
 
-const logout = document.getElementById("logout");
+// GET request to protected route
+fetch('http://127.0.0.1:8081/', { method: 'GET', credentials: 'include' })
+    .then(response => response.json())
+    .then(data => {
+        if (data.user) {
+            const user = data.user;
+            const username = user.username;
+            userName.textContent = username.charAt(0).toUpperCase() + username.slice(1);
+        } else {
+            // User is not authenticated, handle accordingly
+            window.location.href = "../login/login.html";
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 
-logout.addEventListener("click", () => {
-    window.location.href = "../login/login.html";
-})
+// Logout
+logout.addEventListener("click", async () => {
+    try {
+        const response = await fetch("http://127.0.0.1:8081/logout", {
+            method: "GET",
+            credentials: "include",
+        });
+
+        const data = await response.json();
+
+        if (data.message === 'Logout successfully') {
+            window.location.href = "../login/login.html";
+        }
+    } catch (error) {
+        console.log(error);
+    }
+});

@@ -18,7 +18,7 @@ app.use(cors(
     }));
 
 // Routes
-const authRoutes = require("./routes/auth");
+const authRoutes = require("./routes/route");
 app.use("/", authRoutes);
 
 // Listening Server and DB Connection

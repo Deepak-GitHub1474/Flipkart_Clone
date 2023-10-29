@@ -27,7 +27,7 @@ const loginUser = async (payload) => {
     const data = await resp.json();
     // console.log(data); // Check the response data in the console
 
-    if (data.message === 'Login successful') {
+    if (data.message === 'Login successfully') {
       window.location.href = "http://127.0.0.1:5500/client/homepage/index.html";
     } else {
       alert(data.message);

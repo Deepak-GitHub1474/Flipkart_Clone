@@ -6,7 +6,7 @@ formSubmit.addEventListener('click', (event) => {
     const userEmail = document.getElementById('email').value
     const userPassword = document.getElementById('password').value
 
-    if (!userName || userEmail || userPassword) {
+    if (!userName || !userEmail || !userPassword) {
         alert('All input fields are required')
         return
     }
