@@ -7,7 +7,7 @@ const cartProfileContainer = document.querySelector(".cart-profile-container");
 const userName = document.getElementById('username');
 const logout = document.getElementById("logout");
 
-// Header Search box controll
+// Header Search box control
 searchIcon.addEventListener("click", (e) => {
     e.stopPropagation(); // Prevent the click event from propagating to the body
     if (window.innerWidth < 768) {
@@ -31,14 +31,18 @@ searchBox.addEventListener("click", (e) => {
     e.stopPropagation();
 });
 
-if (window.innerWidth > 500) {
+if (window.innerWidth < 1200) {
     window.addEventListener("resize", () => {
-        flipkartTitleContainer.style.display = "block";
-        cartProfileContainer.style.display = "flex";
+        if (window.innerWidth > 500) {
+            flipkartTitleContainer.style.display = "block";
+            cartProfileContainer.style.display = "flex";
+        }
         if (window.innerWidth > 768) {
             searchBox.style.width = "30vw";
         } else {
-            searchBox.style.width = "0";
+            if (window.innerWidth > 500) {
+                searchBox.style.width = "0";
+            }
         }
     });
 }

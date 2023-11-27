@@ -483,7 +483,7 @@ img[alt="kotak-logo-img"] {
     .item-collection-container::-webkit-scrollbar {
         width: 0;
         background-color: transparent;
-        background-color: #2874f0;
+        /* border-bottom: 1px solid #2874f0; */
     }
 
     .item-collection-img {
