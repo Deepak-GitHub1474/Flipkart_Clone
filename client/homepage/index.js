@@ -88,7 +88,7 @@ function createProductElement(product) {
     titleElement.classList.add("product-title");
 
     const priceElement = document.createElement("p");
-    priceElement.textContent = `$${product.price}`;
+    priceElement.textContent = `$${Math.floor(product.price)}`;
     productElement.appendChild(priceElement);
 
     const addToCartButton = document.createElement("button");

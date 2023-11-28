@@ -174,7 +174,7 @@ function createCartItemElement(product) {
     priceContainer.classList.add("price-container");
 
     const price = document.createElement("h4");
-    price.textContent = `$${product.price}`;
+    price.textContent = `$${Math.floor(product.price)}`;
     priceContainer.appendChild(price);
     price.classList.add("price");
 
@@ -230,7 +230,7 @@ function updatePriceDetails() {
     let totalItems = 0;
 
     cartItems.forEach(product => {
-        totalPrice += product.price * product.quantity;
+        totalPrice += Math.floor(product.price) * product.quantity;
         totalItems += product.quantity;
     });
 

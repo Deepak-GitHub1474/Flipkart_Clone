@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: all .2s linear;
+}
+
+body {
+  background-color: #f1f3f6;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+form {
+  padding: 20px;
+  width: 700px;
+  background: #fff;
+  box-shadow: 0 5px 10px #0000001a;
+}
+
+#validation-msg {
+  background-color: #ff0000;
+  color: #ffffff;
+  width: 100%;
+  padding: 15px;
+  margin: 15px 0;
+  font-weight: 600;
+  display: none;
+}
+
+.form-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.form-element {
+  flex: 1 1 250px;
+}
+
+.title {
+  font-size: 20px;
+  color: #333;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.inputBox {
+  margin: 15px 0;
+}
+
+.inputBox label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.inputBox input {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  font-size: 15px;
+  text-transform: none;
+}
+
+.inputBox input:focus {
+  border: 1px solid #000;
+}
+
+.card-year-cvv,
+.state-pincode-container {
+  display: flex;
+  gap: 15px;
+}
+
+.inputBox {
+  margin-top: 5px;
+}
+
+.inputBox img {
+  height: 34px;
+  margin-top: 5px;
+  filter: drop-shadow(0 0 1px #000);
+}
+
+#checkout-btn,
+#pay-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 17px;
+  background: #388e3c;
+  color: #fff;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+#checkout-btn:hover,
+#pay-btn:hover {
+  background: #2ecc71;
+}
+
+/* Modal */
+
+#modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+}
+
+#closeBtn {
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+}
+
+.total-cart-cost-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 370px;
+  width: 500px;
+  box-shadow: 0 0 5px black;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+#total-cart-cost {
+  display: none;
+}
+
+#modal-close-container {
+  box-shadow: 0 0 5px black;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.payment-successfull-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+
+}
+
+.ring {
+  border: 6px solid #0f620f;
+  border-top: 6px solid #f3f3f3;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  animation: spin 2s linear infinite;
+  margin: 1.5rem auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0.1;
+  }
+
+  25% {
+    opacity: 0.3
+  }
+
+  50% {
+    opacity: 0.5
+  }
+
+  75% {
+    opacity: 0.8
+  }
+
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+#successfull-symbol {
+  color: #0f620f;
+  font-size: 40px;
+  position: absolute;
+  transition: 0.5s ease-in-out;
+  display: none;
+}
+
+#payment-successfull-msg {
+  font-weight: 700;
+  color: #241e1e;
+  font-size: 18px;
+  text-align: center;
+  display: none;
+}
+
+/* Total Cart Cost */
+.cost-container {
+  padding: 0 1rem;
+  line-height: 3rem;
+  display: none;
+}
+
+.cost-container h3 {
+  color: #878787;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.cost-container h4 {
+  color: #212121;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.cost-container h2 {
+  color: #212121;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.discount-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-discount {
+  color: #008000;
+}
+
+.cost-placeholder-container,
+.delivery-charge-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-cost-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  color: #000;
+}
+
+.custom-hr {
+  border-top: 0.5px solid #878787;
+}
+
+@media (max-width:500px) {
+  .total-cart-cost-container {
+    width: 98vw;
+  }
+}

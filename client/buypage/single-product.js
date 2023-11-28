@@ -2,6 +2,7 @@ const searchBox = document.getElementById("search-box");
 const searchIcon = document.querySelector(".search-icon-container");
 const flipkartTitleContainer = document.querySelector(".nav-title-container");
 const cartProfileContainer = document.querySelector(".cart-profile-container");
+const buyBtn = document.querySelector(".buy-now-button");
 const addToCartBtn = document.querySelector(".add-to-cart-button");
 const cartCount = document.getElementById("cart-count");
 const userName = document.getElementById('username');
@@ -77,7 +78,7 @@ function displayProduct(product) {
 
     productImg.src = product.image;
     productTitle.textContent = product.title;
-    productPrice.textContent = `Price: $ ${product.price}`;
+    productPrice.textContent = `Price: $ ${Math.floor(product.price)}`;
     productDescription.textContent = product.description;
     rating.textContent = product?.rating.rate;
     ratingCount.textContent = `${product.rating.count} Rating`;
@@ -121,6 +122,12 @@ function updateCartCount() {
     cartCount.textContent = totalQuantity;
 }
 updateCartCount();
+
+
+// Checkout
+buyBtn.addEventListener("click", () => {
+    window.location.href = "../payment-gateway/payment-gateway.html";
+});
 
 // <======================= Backend Request =======================> //
 

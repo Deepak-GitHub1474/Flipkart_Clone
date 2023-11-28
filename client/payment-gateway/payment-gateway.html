@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment-gateway</title>
+    <link rel="stylesheet" href="payment-gateway.css">
+    <link rel="shortcut icon" href="../assets/flipkart-logo-fav-icon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+        <form class="form">
+            <div id="validation-msg">All input fields required</div>
+            <div class="form-wrap">
+                <div class="form-element">
+                    <h3 class="title">billing address</h3>
+                    <div class="inputBox">
+                        <label>full name :</label>
+                        <input type="text" placeholder="deepak chaudhary" id="username">
+                    </div>
+                    <div class="inputBox">
+                        <label>email :</label>
+                        <input type="email" placeholder="developerstring@youtube.com" id="email">
+                    </div>
+                    <div class="inputBox">
+                        <label>address :</label>
+                        <input type="text" placeholder="room no/building name - street" id="address">
+                    </div>
+                    <div class="inputBox">
+                        <label>city :</label>
+                        <input type="text" placeholder="mumbai" id="city">
+                    </div>
+                    <div class="state-pincode-container">
+                        <div class="inputBox">
+                            <label>state :</label>
+                            <input type="text" placeholder="maharashtra" id="state">
+                        </div>
+                        <div class="inputBox">
+                            <label>pin code :</label>
+                            <input type="number" placeholder="123 456" id="pincode">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-element">
+                    <h3 class="title">payment</h3>
+                    <div class="inputBox">
+                        <span>cards accepted :</span>
+                        <img src="images/card_img.png" alt="">
+                    </div>
+                    <div class="inputBox">
+                        <label>name on card :</label>
+                        <input type="text" placeholder="deepak chaudhary" id="card-holder-name">
+                    </div>
+                    <div class="inputBox">
+                        <label>credit card number :</label>
+                        <input type="number" placeholder="1111-2222-3333-4444" id="card-number">
+                    </div>
+                    <div class="inputBox">
+                        <label>exp month :</label>
+                        <input type="number" placeholder="01" id="exp-month">
+                    </div>
+
+                    <div class="card-year-cvv">
+                        <div class="inputBox">
+                            <label>exp year :</label>
+                            <input type="number" placeholder="2026" id="exp-year">
+                        </div>
+                        <div class="inputBox">
+                            <label>CVV :</label>
+                            <input type="number" placeholder="1234" id="cvv">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <input type="submit" value="proceed to checkout" id="checkout-btn">
+        </form>
+        <div id="modal">
+            <div class="total-cart-cost-container">
+                <div id="modal-close-container">
+                    <button id="closeBtn"><i class="fa-solid fa-square-xmark fa-2x"></i></button>
+                </div>
+                <div class="cost-container">
+                    <h3>PRICE DETAILS</h3>
+                    <hr class="custom-hr" />
+                    <div class="custom-content">
+                        <div class="cost-placeholder-container">
+                            <h4>Price (<span id="cart-all-items">0</span>) item</h4>
+                            <h4 id="cart-items-price">0</h4>
+                        </div>
+                        <div class="discount-container">
+                            <h4>Discount</h4>
+                            <h4 class="total-discount">-</h4>
+                        </div>
+                        <div class="delivery-charge-container">
+                            <h4 class="delivery-charge-title">Delivery Charges</h4>
+                            <h4 id="delivery-charge">0</h4>
+                        </div>
+                    </div>
+                    <hr class="custom-hr" />
+                    <div class="total-cost-container">
+                        <h2 class="cost-total-title">Total Amount</h2>
+                        <h2 id="total-cost">0</h2>
+                    </div>
+                    <div>
+                        <input type="submit" value="proceed to pay" id="pay-btn">
+                    </div>
+                </div>
+                <div class="payment-successfull-container">
+                    <div class="ring"></div>
+                    <h2 id="successfull-symbol"><i class="fa-solid fa-check fa-beat-fade"></i></h2>
+                </div>
+                <p id="payment-successfull-msg">Payment Successfull</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="payment-gateway.js"></script>
+
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/5ad84bde35.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
