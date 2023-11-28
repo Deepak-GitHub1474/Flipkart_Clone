@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function displayCart() {
     const cartItemsContainer = document.getElementById("cart-items-container");
     const emptyCartElements = document.getElementById("empty-cart-elements-container");
-    const pinContainer = document.querySelector(".pincode-container");
+    // const pinContainer = document.querySelector(".pincode-container");
 
     // Retrieve cart items from LocalStorage
     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
@@ -73,12 +73,12 @@ function displayCart() {
     if (cartItems.length === 0) {
         placeOrderButton.style.display = "none";
         boxContainer2.style.display = "none";
-        pinContainer.style.display = "none";
+        // pinContainer.style.display = "none";
         emptyCartElements.style.display = "block";
     } else {
         placeOrderButton.style.display = "block";
         boxContainer2.style.display = "block";
-        pinContainer.style.display = "block";
+        // pinContainer.style.display = "block";
         emptyCartElements.style.display = "none";
     }
 }
@@ -224,7 +224,7 @@ function updateCartItemQuantity(updatedProduct) {
 function updatePriceDetails() {
     // Retrieve existing cart items from LocalStorage
     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-    console.log(cartItems);
+    // console.log(cartItems);
     // Calculate the total price and the number of items in the cart
     let totalPrice = 0;
     let totalItems = 0;
@@ -268,6 +268,13 @@ function removeItemFromCart(productToRemove) {
         location.reload();
     }
 }
+
+
+// Place Order
+
+placeOrderButton.addEventListener("click", () => {
+    window.open("../payment-gateway/payment-gateway.html")
+})
 
 // <======================= Backend Request =======================> //
 

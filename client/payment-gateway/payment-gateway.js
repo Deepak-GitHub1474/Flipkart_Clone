@@ -11,6 +11,15 @@ const validationMsg = document.getElementById("validation-msg");
 // UserData
 let userData = {};
 
+// Function to handle input field styling
+function handleInputFieldValidation(element, isValid) {
+    if (isValid) {
+        element.style.outline = ""; // Reset outline when input is valid
+    } else {
+        element.style.outline = "1px solid red"; // Apply red outline for invalid input
+    }
+}
+
 // Form Validation
 function userInputs() {
     const userName = document.getElementById("username").value;
@@ -28,9 +37,11 @@ function userInputs() {
     // Name Input Field Validation
     if (userName.length > 3 && userName.length < 20) {
         userData.username = userName;
+        handleInputFieldValidation(document.getElementById("username"), true);
     } else {
         validationMsg.textContent = "Name is not valid!";
         validationMsg.style.display = "block";
+        handleInputFieldValidation(document.getElementById("username"), false);
         return;
     }
 
@@ -39,90 +50,110 @@ function userInputs() {
 
     if (emailRegex.test(email.value)) {
         userData.email = userEmail.toLowerCase();
+        handleInputFieldValidation(document.getElementById("email"), true);
     } else {
         validationMsg.textContent = "Email is not valid!";
         validationMsg.style.display = "block";
+        handleInputFieldValidation(document.getElementById("email"), false);
         return;
     }
 
     // Adress Input Field Validation
     if (address.length > 5 && address.length < 40) {
         userData.address = address;
+        handleInputFieldValidation(document.getElementById("address"), true);
     } else {
         validationMsg.textContent = "Enter full address!";
         validationMsg.style.display = "block";
+        handleInputFieldValidation(document.getElementById("address"), false);
         return;
     }
 
     // City Input Field Validation
     if (city.length > 2 && city.length < 20) {
         userData.city = city;
+        handleInputFieldValidation(document.getElementById("city"), true);
     } else {
         validationMsg.textContent = "City name is not valid!";
         validationMsg.style.display = "block";
+        handleInputFieldValidation(document.getElementById("city"), false);
         return;
     }
 
     // State Input Field Validation
     if (state.length > 2 && state.length < 20) {
         userData.state = state;
+        handleInputFieldValidation(document.getElementById("state"), true);
     } else {
         validationMsg.textContent = "State name is not valid!";
         validationMsg.style.display = "block";
+        handleInputFieldValidation(document.getElementById("state"), false);
         return;
     }
 
     // Pincode Input Field Validation
     if (pincode.length === 6) {
         userData.pincode = pincode;
+        handleInputFieldValidation(document.getElementById("pincode"), true);
     } else {
         validationMsg.textContent = "Pincode is not valid!";
         validationMsg.style.display = "block";
+        handleInputFieldValidation(document.getElementById("pincode"), false);
         return;
     }
 
     // Card Holder Name Input Field Validation
     if (cardHolderName.length > 3 && cardHolderName.length < 30) {
-        cardHolderName.cardHolderName = cardHolderName;
+        userData.cardHolderName = cardHolderName;
+        handleInputFieldValidation(document.getElementById("card-holder-name"), true);
     } else {
         validationMsg.textContent = "Card holder name is not valid!";
         validationMsg.style.display = "block";
+        handleInputFieldValidation(document.getElementById("card-holder-name"), false);
         return;
     }
 
     // Card Number Input Field Validation
     if (cardNumber.length === 16) {
         userData.cardNumber = cardNumber;
+        handleInputFieldValidation(document.getElementById("card-number"), true);
     } else {
         validationMsg.textContent = "CardNumber is not valid!";
         validationMsg.style.display = "block";
+        handleInputFieldValidation(document.getElementById("card-number"), false);
         return;
     }
 
     // Card Exp Month Input Field Validation
     if (expMonth > 0 && expMonth <= 12) {
         userData.expMonth = expMonth;
+        handleInputFieldValidation(document.getElementById("exp-month"), true);
     } else {
         validationMsg.textContent = "Exp month is not valid!";
         validationMsg.style.display = "block";
+        handleInputFieldValidation(document.getElementById("exp-month"), false);
         return;
     }
 
     // Card Exp Year Input Field Validation
     if (expYear.length === 4 && expYear > 2023) {
         userData.expYear = expYear;
+        handleInputFieldValidation(document.getElementById("exp-year"), true);
     } else {
         validationMsg.textContent = "Exp year is not valid!";
         validationMsg.style.display = "block";
+        handleInputFieldValidation(document.getElementById("exp-year"), false);
         return;
     }
 
     // CVV Number Input Field Validation
     if (cvv.length === 4) {
         userData.cvv = cvv;
+        handleInputFieldValidation(document.getElementById("cvv"), true);
     } else {
         validationMsg.textContent = "CVV is not valid!";
         validationMsg.style.display = "block";
+        handleInputFieldValidation(document.getElementById("cvv"), false);
         return;
     }
 
@@ -140,7 +171,7 @@ checkoutBtn.addEventListener("click", (e) => {
     const totalCost = document.getElementById("total-cost");
 
     const userInfo = userInputs();
-    console.log(userInfo);
+
     if (userInfo) {
         modal.style.display = "block";
         document.body.style.overflow = "hidden";
@@ -171,15 +202,20 @@ payBtn.addEventListener("click", () => {
 
     costConntainer.style.display = "none";
     ring.style.display = "block";
+
+    // Delete Local Storage Data
+    localStorage.removeItem("cart");
+
     setTimeout(() => {
         successfullSymbol.style.display = "block";
         successfullMsg.style.display = "block";
     }, 2000);
+
 })
 
 
 closeBtn.addEventListener("click", () => {
-    window.location.href = "../homepage/index.html"
+    window.location.href = "../homepage/index.html";
 });
 
 // Get cart items from local storage
