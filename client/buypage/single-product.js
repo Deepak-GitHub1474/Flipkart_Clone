@@ -11,6 +11,15 @@ const logout = document.getElementById("logout");
 // Header Search box control
 searchIcon.addEventListener("click", (e) => {
     e.stopPropagation(); // Prevent the click event from propagating to the body
+
+    const searchQuery = searchBox.value.trim().toLowerCase();
+
+    if (searchQuery.length > 0) {
+        // Create a URL with the search query as a parameter and navigate to the home page
+        const searchURL = `../homepage/index.html?searchQuery=${searchQuery}`;
+        window.location.href = searchURL;
+    }
+    
     if (window.innerWidth < 768) {
         searchBox.style.width = "80vw";
         flipkartTitleContainer.style.display = "none";
