@@ -53,6 +53,9 @@ const productId = new URLSearchParams(window.location.search).get('id');
 
 document.addEventListener('DOMContentLoaded', getProduct);
 
+// Store item in local storage to fetch from checkout page
+const currentItem = {};
+
 async function getProduct() {
     try {
         const response = await fetch(`https://fakestoreapi.com/products/${productId}`);
@@ -61,6 +64,12 @@ async function getProduct() {
 
         addToCartBtn.addEventListener("click", () => {
             addToCart(product);
+        });
+
+        buyBtn.addEventListener("click", () => {
+            localStorage.setItem("purchaseSource", "currentItem");
+            setItemToLocalStorage(product);
+            window.location.href = "../payment-gateway/payment-gateway.html";
         });
 
     } catch (error) {
@@ -99,9 +108,15 @@ wishlistHeart.onclick = () => {
     }
 }
 
+// Get cart item from local storage
+function getCartItem() {
+    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+    return existingCart;
+}
+
 // Adding the item to the cart
 function addToCart(product) {
-    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingCart = getCartItem();
     const existingProduct = existingCart.find(item => item.id === product.id);
     if (existingProduct) {
         // existingProduct.quantity = 1;
@@ -117,17 +132,16 @@ function addToCart(product) {
 
 // Updating the total number of item avilable in cart and show on home page
 function updateCartCount() {
-    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingCart = getCartItem();
     const totalQuantity = existingCart.length;
     cartCount.textContent = totalQuantity;
 }
 updateCartCount();
 
-
-// Checkout
-buyBtn.addEventListener("click", () => {
-    window.location.href = "../payment-gateway/payment-gateway.html";
-});
+// set item in local storage
+function setItemToLocalStorage(product) {
+    localStorage.setItem("currentItem", JSON.stringify(product)) || {};
+}
 
 // <======================= Backend Request =======================> //
 

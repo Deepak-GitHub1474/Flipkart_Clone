@@ -21,7 +21,7 @@ function handleInputFieldValidation(element, isValid) {
 }
 
 // Form Validation
-function userInputs() {
+function userInputValidation() {
     const userName = document.getElementById("username").value;
     const userEmail = document.getElementById("email").value;
     const address = document.getElementById("address").value;
@@ -160,8 +160,8 @@ function userInputs() {
     return userData;
 }
 
-// Total Cost
-let totalCartCost = 0;
+// Get the purchase source flag from local storage
+const purchaseSource = localStorage.getItem("purchaseSource");
 
 checkoutBtn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -170,17 +170,21 @@ checkoutBtn.addEventListener("click", (e) => {
     const deliveryCharges = document.getElementById("delivery-charge");
     const totalCost = document.getElementById("total-cost");
 
-    const userInfo = userInputs();
+    const userInfo = userInputValidation();
 
-    if (userInfo) {
+    if (userInfo && purchaseSource === "cart") {
+        // Total Cart Cost
+        let totalCartCost = 0;
+        const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
         modal.style.display = "block";
         document.body.style.overflow = "hidden";
         conntainer.style.backgroundColor = "blue";
         form.style.display = "none";
-        const cartItems = getCartItem();
+
         const cartItemsCost = cartItems.reduce((acc, cur) => acc + Math.floor(cur.price), 0);
-        const deliveryCharge = cartItems.length > 0 ? 2 : 0;
+        const deliveryCharge = 2;
         totalCartCost = cartItemsCost + deliveryCharge;
+        console.log("Total Cart Price:", totalCartCost);
 
         setTimeout(() => {
             ring.style.display = "none";
@@ -190,10 +194,32 @@ checkoutBtn.addEventListener("click", (e) => {
             deliveryCharges.textContent = `${deliveryCharge}$`;
             totalCost.innerHTML = `${totalCartCost}$`;
         }, 2000);
+
+    } else if (userInfo && purchaseSource === "currentItem") {
+        // Total Current Item Cost
+        let totalCurrentItemCost = 0;
+        const currentItem = JSON.parse(localStorage.getItem("currentItem")) || {};
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden";
+        conntainer.style.backgroundColor = "blue";
+        form.style.display = "none";
+        const currentItemCost = Math.floor(currentItem.price);
+        const deliveryCharge = 2;
+        totalCurrentItemCost = currentItemCost + deliveryCharge;
+        console.log("Total Price from Product Page:", totalCurrentItemCost);
+
+        setTimeout(() => {
+            ring.style.display = "none";
+            costConntainer.style.display = "block";
+            totalItems.textContent = 1;
+            cartItemsPrice.textContent = `${currentItemCost}$`;
+            deliveryCharges.textContent = `${deliveryCharge}$`;
+            totalCost.innerHTML = `${totalCurrentItemCost}$`;
+            console.log("settimeout");
+        }, 2000);
     }
 
 });
-
 
 // Pay
 payBtn.addEventListener("click", () => {
@@ -205,6 +231,7 @@ payBtn.addEventListener("click", () => {
 
     // Delete Local Storage Data
     localStorage.removeItem("cart");
+    localStorage.removeItem("currentItem");
 
     setTimeout(() => {
         successfullSymbol.style.display = "block";
@@ -218,8 +245,4 @@ closeBtn.addEventListener("click", () => {
     window.location.href = "../homepage/index.html";
 });
 
-// Get cart items from local storage
-function getCartItem() {
-    return JSON.parse(localStorage.getItem("cart")) || [];
-}
 

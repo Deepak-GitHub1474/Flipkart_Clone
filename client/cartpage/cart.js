@@ -271,9 +271,9 @@ function removeItemFromCart(productToRemove) {
 
 
 // Place Order
-
 placeOrderButton.addEventListener("click", () => {
-    window.open("../payment-gateway/payment-gateway.html")
+    localStorage.setItem("purchaseSource", "cart");
+    window.open("../payment-gateway/payment-gateway.html", "_self")
 })
 
 // <======================= Backend Request =======================> //
